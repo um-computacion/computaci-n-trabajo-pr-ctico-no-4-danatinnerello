@@ -1,5 +1,5 @@
 from src.factorial import factorial_recursiva
-
+from unittest.mock import patch
 import unittest
 
 class Test_factorial(unittest.TestCase):
@@ -53,6 +53,35 @@ class Test_factorial(unittest.TestCase):
         result = factorial_recursiva(n)
         self.assertEqual(result,362880)
 
+
+class TestFactorial(unittest.TestCase):
+    
+    def test_factorial_numeros_positivos(self):
+        """Prueba el cálculo de factorial para números positivos."""
+        self.assertEqual(factorial_recursiva(1), 1)
+        self.assertEqual(factorial_recursiva(5), 120)
+        self.assertEqual(factorial_recursiva(10), 3628800)
+        self.assertEqual(factorial_recursiva(20), 2432902008176640000)
+    
+    def test_factorial_cero(self):
+        """Prueba el cálculo de factorial para cero."""
+        self.assertEqual(factorial_recursiva(0), 1)
+    
+    def test_factorial_negativos(self):
+        """Prueba que se maneje correctamente números negativos."""
+        self.assertEqual(factorial_recursiva(-1), "Error: No se puede calcular el factorial de un número negativo")
+        self.assertEqual(factorial_recursiva(-100), "Error: No se puede calcular el factorial de un número negativo")
+    
+    def test_factorial_no_numerico(self):
+        """Prueba que se manejen correctamente entradas no numéricas."""
+        self.assertEqual(factorial_recursiva("abc"), "Error: Por favor ingresa un número válido")
+        self.assertEqual(factorial_recursiva(""), "Error: Por favor ingresa un número válido")
+        self.assertEqual(factorial_recursiva("3.14"), "Error: Por favor ingresa un número válido")  # Asumiendo que solo aceptamos enteros
+    
+    def test_factorial_tipos_especiales(self):
+        # True se convierte a 1 y False a 0 en Python al tratarlos como int
+        self.assertEqual(factorial_recursiva(True), 1)
+        self.assertEqual(factorial_recursiva(False), 1)
 
 
 
