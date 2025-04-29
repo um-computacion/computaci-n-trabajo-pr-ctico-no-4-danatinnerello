@@ -1,8 +1,6 @@
 import unittest
-from flatten import aplanar_lista
-class SoloListasError(Exception):
-    ... 
-
+from src.flatten import aplanar_lista
+from src.flatten import SoloListasError
 
 class TestAplanarLista(unittest.TestCase):
     def test_lista_simple(self):
