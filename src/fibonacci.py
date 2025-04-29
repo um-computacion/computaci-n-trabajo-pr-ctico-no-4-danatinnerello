@@ -1,21 +1,14 @@
-def fibonacci_NO_recursiva(n):
-    if n <= 0:
+#funcion recursiva 
+
+def fibonacci(n:int) -> int:
+    if n == 0 :
         return 0
     elif n == 1:
         return 1
-    elif n == 2 :
-        return 1
-    
-    a,b = 0,1
-    suma = a + b 
-
-    for i in range(2, n):
-        c = a + b 
-        suma =suma + c 
-        a,b = b,c
-    return suma 
+    if n > 1:
+        return fibonacci(n-1) + fibonacci(n-2)
 
 
 n = int(input("ingrese un numero"))
-result = fibonacci_NO_recursiva(n)
-print(result)
+result = fibonacci(n)
+print("su fibonacci es: ", result)
