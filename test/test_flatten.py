@@ -1,4 +1,5 @@
 import unittest
+from flatten import aplanar_lista
 class SoloListasError(Exception):
     ... 
 
