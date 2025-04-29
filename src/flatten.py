@@ -1,6 +1,5 @@
-
 class SoloListasError(Exception):
-    ...
+    ... 
 
 
 def aplanar_lista(lista):
